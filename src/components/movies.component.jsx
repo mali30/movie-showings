@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {getMovies}  from '../services/fakeMovieService'
-import {deleteMovie} from '../services/fakeMovieService'
 class MovieCollection extends Component {
     constructor() {
         super()
@@ -17,19 +16,21 @@ class MovieCollection extends Component {
         this.setState({movie: filteredMovies})
     }
 
-    messageToRender = () => {
-        if (this.state.movie.length <= 0) {
-            return <h1> No more movies to see!</h1>
-        }
-    }
+  
+    
     
     render() {
+
+
+    if (this.state.movie.length === 0) 
+        return <h1> No more movies to see!</h1>
+    
 
         return (
             <div>
 
                 <p> Showing {this.state.movie.length} movies in the theater</p>
-                <p>{this.messageToRender()}</p>
+                
             <table className="table">
                 <thead>
                     <tr >
